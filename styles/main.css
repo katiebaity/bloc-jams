@@ -24,10 +24,6 @@ body {
     position: relative;
     left: 2rem;
 }
-.navbar-link:hover {
-  text: rgb(233,50,117);
-  background-color: white;
-}
 .container {
      margin: 0 auto;
      max-width: 64rem;
@@ -54,3 +50,55 @@ body {
      .column.third { width: 33.3%; }
      .column.fourth { width: 25%; }
      .column.flow-opposite { float: right; }
+     @media (/* 1 */) {
+         .media-container {
+             color: red;
+         }
+
+         .blue, .green {
+             display: none;
+         }
+     }
+
+     @media (/* 2 */) {
+         .media-container {
+             color: blue;
+         }
+
+         .green, .red {
+             display: none;
+         }
+
+         .blue {
+             display: inline;
+         }
+     }
+
+     @media (/* 3 */) {
+         .media-container {
+             color: green;
+         }
+
+         .blue, .red {
+             display: none;
+         }
+
+         .green {
+             display: inline;
+         }
+     }
+     @media  {
+         .media-container {
+             color: red;
+         }
+     }
+     @media (min-width: 768px) {
+         .media-container {    
+             color: blue;
+         }
+     }
+     @media (min-width: 1024px) {
+         .media-container {
+             color: ;green
+         }
+     }
