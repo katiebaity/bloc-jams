@@ -11,5 +11,4 @@ var animatePoints = function() {
    for (var i = 0; i < points.lenth; i++) {
      revealPoint(i);
    }
-   return animatePoints();
 };
