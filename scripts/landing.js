@@ -1,5 +1,6 @@
-var animatePoints = function() {
-  var points = document.getElementsByClassName('point');
+var pointsArray = document.getElementsByClassName('point');
+
+var animatePoints = function(points) {
 
    var revealPoint = function(index) {
        points[index].style.opacity = 1;
@@ -12,3 +13,10 @@ var animatePoints = function() {
      revealPoint(i);
    }
 };
+
+window.onload = function() {
+  var sellingPoints = document.getElementsByClassName('selling-points')[0];
+  window.addEventListener('scroll', function(event) {
+    console.log("Current offset from the top is " + sellingPoints.getBoundingClientRect().top + " pixels");
+  });
+ }
