@@ -27,6 +27,20 @@ var albumMarconi = {
         { title: 'Wrong phone number', duration: '2:15'}
     ]
 };
+var albumDog = {
+    title: 'Tounge Out Tuesday',
+    artist: 'The Doodles',
+    label: 'Easy Listening',
+    year: '2017',
+    albumArtUrl: 'assets/images/album_covers/01.png',
+    songs: [
+        { title: 'Playing in the Park', duration: '3:24' },
+        { title: 'When My Owner Leaves', duration: '5:19' },
+        { title: 'Walking on a Leash', duration: '2:34' },
+        { title: 'Squirrel Hunting', duration: '4:27'},
+        { title: 'Puppy Problems', duration: '2:31'}
+    ]
+};
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -38,6 +52,14 @@ var createSongRow = function(songNumber, songName, songLength) {
 
      return template;
  };
+
+ var albumTitle = document.getElementsByClassName('album-view-title')[0];
+ var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+ var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+ var albumImage = document.getElementsByClassName('album-cover-art')[0];
+ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
+
  var setCurrentAlbum = function(album) {
      // #1
      var albumTitle = document.getElementsByClassName('album-view-title')[0];
@@ -63,4 +85,14 @@ var createSongRow = function(songNumber, songName, songLength) {
 
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+
+     var albums = [albumPicasso, albumMarconi, albumDog];
+     var index = 1;
+     albumImage.addEventListener("click", function(event) {
+       setCurrentAlbum(albums[index]);
+       index++;
+       if (index == albums.length) {
+         index = 0;
+       });
+     }
  };
