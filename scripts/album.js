@@ -112,4 +112,4 @@ var songRows = document.getElementsByClassName('album-view-song-item');
            this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
          });
      }
- };
+ }
