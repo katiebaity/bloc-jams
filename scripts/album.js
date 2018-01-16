@@ -90,4 +90,5 @@ var songRows = document.getElementsByClassName('album-view-song-item');
        songRows[i].addEventListener('mouseleave', function(event) {
          this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
        });
-     }
+    }
+  };
