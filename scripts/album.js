@@ -53,12 +53,6 @@ var createSongRow = function(songNumber, songName, songLength) {
      return template;
  };
 
- var albumTitle = document.getElementsByClassName('album-view-title')[0];
- var albumArtist = document.getElementsByClassName('album-view-artist')[0];
- var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
- var albumImage = document.getElementsByClassName('album-cover-art')[0];
- var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
-
 
  var setCurrentAlbum = function(album) {
      // #1
@@ -89,27 +83,16 @@ var songRows = document.getElementsByClassName('album-view-song-item');
  var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 
  window.onload = function() {
-     setCurrentAlbum(albumPicasso);
-
-     songListContainer.addEventListener('mouseover', function(event) {
+      songListContainer.addEventListener('mouseover', function(event) {
        // Only target individual song rows during event delegation
         if (event.target.parentElement.className === 'album-view-song-item') {
             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
         }
      });
 
-     var albums = [albumPicasso, albumMarconi, albumDog];
-     var index = 1;
-     albumImage.addEventListener("click", function(event) {
-       setCurrentAlbum(albums[index]);
-       index++;
-       if (index == albums.length) {
-         index = 0;
+     for (var i = 0; i < songRows.length; i++) {
+       songRows[i].addEventListener('mouseleave', function(event) {
+         // Selects first child element, which is the song-item-number element
+         this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
        });
-       for (var i = 0; i < songRows.length; i++) {
-         songRows[i].addEventListener('mouseleave', function(event) {
-           // Selects first child element, which is the song-item-number element
-           this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-         });
      }
- }
