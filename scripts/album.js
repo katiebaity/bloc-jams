@@ -130,9 +130,9 @@ var songRows = document.getElementsByClassName('album-view-song-item');
 
       songListContainer.addEventListener('mouseover', function(event) {
         if (event.target.parentElement.className === 'album-view-song-item') {
-+            var songItem = getSongItem(event.target);
++       var songItem = getSongItem(event.target);
 +
-+            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
++       if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
 +                songItem.innerHTML = playButtonTemplate;
 +          }
         }
