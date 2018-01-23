@@ -44,28 +44,28 @@ var albumDog = {
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
-      + '  <td class="song-item-title">' + songName + '</td>'
-      + '  <td class="song-item-duration">' + songLength + '</td>'
-      + '</tr>'
+       '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
+       '  <td class="song-item-title">' + songName + '</td>'
+       '  <td class="song-item-duration">' + songLength + '</td>'
+       '</tr>'
       ;
 
     var $row = $(template);
 
     var clickHandler = function() {
       var songNumber = $(this).attr('data-song-number');
- +
- +        if (currentlyPlayingSong !== null) {
- +            var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSong + '"]');
- +            currentlyPlayingCell.html(currentlyPlayingSong);
- +        }
- +        if (currentlyPlayingSong !== songNumber) {
- +            $(this).html(pauseButtonTemplate);
- +            currentlyPlayingSong = songNumber;
- +        } else if (currentlyPlayingSong === songNumber) {
- +            $(this).html(playButtonTemplate);
- +            currentlyPlayingSong = null;
- +        }
+
+         if (currentlyPlayingSong !== null) {
+            var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSong + '"]');
+            currentlyPlayingCell.html(currentlyPlayingSong);
+        }
+        if (currentlyPlayingSong !== songNumber) {
+            $(this).html(pauseButtonTemplate);
+            currentlyPlayingSong = songNumber;
+        } else if (currentlyPlayingSong === songNumber) {
+            $(this).html(playButtonTemplate);
+            currentlyPlayingSong = null;
+        }
      };
 
     var onHover = function(event)
