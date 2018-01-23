@@ -69,28 +69,26 @@ var createSongRow = function(songNumber, songName, songLength) {
      };
 
     var onHover = function(event)
-    var onHover = function(event) {
- +        var songNumberCell = $(this).find('.song-item-number');
+    var songNumberCell = $(this).find('.song-item-number');
  +        var songNumber = songNumberCell.attr('data-song-number');
  +
  +        if (songNumber !== currentlyPlayingSong) {
  +            songNumberCell.html(playButtonTemplate);
  +        }
      };
-     var offHover = function(event)  var songNumberCell = $(this).find('.song-item-number');
- +        var songNumber = songNumberCell.attr('data-song-number');
- +
- +        if (songNumber !== currentlyPlayingSong) {
- +            songNumberCell.html(songNumber);
- +        }
+     var offHover = function(event)
+     var songNumberCell = $(this).find('.song-item-number');
++        var songNumber = songNumberCell.attr('data-song-number');
++
++        if (songNumber !== currentlyPlayingSong) {
++            songNumberCell.html(songNumber);
++        }
++    };
++
++    $row.find('.song-item-number').click(clickHandler);
++    $row.hover(onHover, offHover);
++    return $row;
      };
-
-    $row.find('.song-item-number').click(clickHandler);
-
-    $row.hover(onHover, offHover);
-
-    return $row;
- };
 
 
  var setCurrentAlbum = function(album) {
@@ -112,6 +110,9 @@ var createSongRow = function(songNumber, songName, songLength) {
        $albumSongList.append($newRow);
      }
  };
+
+ var child = document.getElementsByClassName('album-view-title')[0];
+ var noParent = document.querySelector('html');
 
  var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
  var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
