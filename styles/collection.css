@@ -20,8 +20,7 @@
  .collection-album-container .caption {
      margin-top: 10px;
  }
-
- .collection-album-container .caption p {
+.collection-album-container .caption p {
      font-size: 1rem;
      font-weight: 300;
      color: rgba(255, 255, 255, 0.6);
