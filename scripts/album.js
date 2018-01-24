@@ -1,7 +1,3 @@
-var getSongNumberCell = function(number) {
-    return $('.song-item-number[data-song-number="' + number + '"]');
-};
-
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
       '<tr class="album-view-song-item">'
@@ -133,7 +129,7 @@ var previousSong = function() {
     currentlyPlayingSongNumber = currentSongIndex + 1;
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
-    $('.currently-playing .song-name').text(currentSongFromAlbum.name);
+     $('.currently-playing .song-name').text(currentSongFromAlbum.name);
      $('.currently-playing .artist-name').text(currentAlbum.artist);
      $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.name + " - " + currentAlbum.name);
      $('.main-controls .play-pause').html(playerBarPauseButton);
