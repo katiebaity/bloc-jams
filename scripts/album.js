@@ -1,6 +1,6 @@
 var getSongNumberCell = function(number) {
   return $('.song-item-number[data-song-number="' + number + '"]');
-}
+};
 
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
@@ -88,6 +88,7 @@ var seek = function(time) {
        currentSoundFile.setTime(time);
    }
 };
+
 var setVolume = function(volume) {
      if (currentSoundFile) {
         currentSoundFile.setVolume(volume);
