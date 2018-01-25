@@ -6,7 +6,7 @@ var animatePoints = function() {
     });
 };
 
-$.each($('.point'), revealPoint);
+      $.each($('.point'), revealPoint);
 };
 
 $(window).load(function() {
@@ -18,7 +18,7 @@ $(window).load(function() {
 
      $(window).scroll(function(event) {
        if ($(window).scrollTop() >= scrollDistance) {
-            animatePoints();
+          animatePoints();
       }
    });
 });
